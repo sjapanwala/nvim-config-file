@@ -21,6 +21,9 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
+Plug 'https://github.com/tribela/vim-transparent'
+Plug 'https://github.com/ellisonleao/gruvbox.nvim'
 
 set encoding=UTF-8
 
@@ -36,7 +39,6 @@ nmap <F2> :Telescope find_files<CR>
 
 :set completeopt-=preview " For No Previews
 
-:colorscheme jellybeans
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
@@ -67,18 +69,4 @@ let g:airline_symbols.linenr = ''
 
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX) && getenv('TERM_PROGRAM') != 'Apple_Terminal')
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
+
